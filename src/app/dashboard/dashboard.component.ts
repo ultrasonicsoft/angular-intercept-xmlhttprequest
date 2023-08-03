@@ -50,11 +50,11 @@ export class DashboardComponent implements OnInit {
 
   productUrl = `https://dummyjson.com/products/add`;
 
-  async ngOnInit() {
-    this.getSecondPost();
+  ngOnInit() {
+    this.addProduct();
   }
 
-  async getSecondPost() {
+  addProduct() {
 
     CUSTOM_DATA = {
       tenantId: 1,
@@ -64,8 +64,9 @@ export class DashboardComponent implements OnInit {
 
     const req = new XMLHttpRequest();
     req.addEventListener("load", (response: any) => {
-      console.debug('🔥 response', response.responseText);
+      console.debug('🔥 Xhr response', response.responseText);
     });
+
     const updatedPost = {
       "id": 100,
       "title": "iPhone 100",
